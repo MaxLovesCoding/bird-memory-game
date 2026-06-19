@@ -21,6 +21,7 @@ body {
 body[data-theme="birds"] {
   --page-bg: linear-gradient(180deg, #87ceeb 0%, #b8e0f6 45%, #e8f5e9 100%);
   --text-color: #1a365d;
+  --card-text-color: #1a365d;
   --accent: #2f855a;
   --accent-soft: #f0fff4;
   --play-top: #48bb78;
@@ -31,6 +32,7 @@ body[data-theme="birds"] {
 body[data-theme="insects"] {
   --page-bg: linear-gradient(180deg, #c6f6d5 0%, #9ae6b4 45%, #fefcbf 100%);
   --text-color: #22543d;
+  --card-text-color: #1a365d;
   --accent: #276749;
   --accent-soft: #f0fff4;
   --play-top: #68d391;
@@ -41,6 +43,7 @@ body[data-theme="insects"] {
 body[data-theme="planets"] {
   --page-bg: linear-gradient(180deg, #1a202c 0%, #2d3748 55%, #1a365d 100%);
   --text-color: #f7fafc;
+  --card-text-color: #1a365d;
   --accent: #90cdf4;
   --accent-soft: #2d3748;
   --play-top: #63b3ed;
@@ -150,6 +153,7 @@ body[data-theme="planets"] {
   margin-top: 0.35rem;
   font-size: clamp(0.85rem, 3vw, 1rem);
   font-weight: 700;
+  color: var(--card-text-color, #1a365d);
 }
 
 .overlay {

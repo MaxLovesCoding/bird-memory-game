@@ -12,10 +12,40 @@ body {
 
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  color: #1a365d;
-  background: linear-gradient(180deg, #87ceeb 0%, #b8e0f6 45%, #e8f5e9 100%);
+  color: var(--text-color, #1a365d);
+  background: var(--page-bg, linear-gradient(180deg, #87ceeb 0%, #b8e0f6 45%, #e8f5e9 100%));
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+
+body[data-theme="birds"] {
+  --page-bg: linear-gradient(180deg, #87ceeb 0%, #b8e0f6 45%, #e8f5e9 100%);
+  --text-color: #1a365d;
+  --accent: #2f855a;
+  --accent-soft: #f0fff4;
+  --play-top: #48bb78;
+  --play-bottom: #2f855a;
+  --play-shadow: #276749;
+}
+
+body[data-theme="insects"] {
+  --page-bg: linear-gradient(180deg, #c6f6d5 0%, #9ae6b4 45%, #fefcbf 100%);
+  --text-color: #22543d;
+  --accent: #276749;
+  --accent-soft: #f0fff4;
+  --play-top: #68d391;
+  --play-bottom: #276749;
+  --play-shadow: #1c4532;
+}
+
+body[data-theme="planets"] {
+  --page-bg: linear-gradient(180deg, #1a202c 0%, #2d3748 55%, #1a365d 100%);
+  --text-color: #f7fafc;
+  --accent: #90cdf4;
+  --accent-soft: #2d3748;
+  --play-top: #63b3ed;
+  --play-bottom: #3182ce;
+  --play-shadow: #2c5282;
 }
 
 #app {
@@ -63,7 +93,7 @@ body {
 }
 
 .card:focus-visible {
-  outline: 3px solid #2f855a;
+  outline: 3px solid var(--accent, #2f855a);
   outline-offset: 3px;
 }
 
@@ -167,9 +197,48 @@ body {
 }
 
 .overlay__subtitle {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   font-size: 1.1rem;
   color: #4a5568;
+}
+
+.theme-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.65rem 0.25rem;
+  border: 3px solid #cbd5e0;
+  border-radius: 1rem;
+  background: #f7fafc;
+  color: #2d3748;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.theme-btn__emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.theme-btn--active {
+  border-color: var(--accent, #2f855a);
+  background: var(--accent-soft, #f0fff4);
+  color: var(--accent, #22543d);
+}
+
+.theme-btn:active {
+  transform: scale(0.98);
 }
 
 .mode-picker {
@@ -203,13 +272,13 @@ body {
 }
 
 .mode-btn--active {
-  border-color: #2f855a;
-  background: #f0fff4;
-  color: #22543d;
+  border-color: var(--accent, #2f855a);
+  background: var(--accent-soft, #f0fff4);
+  color: var(--accent, #22543d);
 }
 
 .mode-btn--active .mode-btn__hint {
-  color: #2f855a;
+  color: var(--accent, #2f855a);
 }
 
 .mode-btn:active {
@@ -233,14 +302,14 @@ body {
   font-size: 1.35rem;
   font-weight: 800;
   color: #ffffff;
-  background: linear-gradient(180deg, #48bb78, #2f855a);
-  box-shadow: 0 6px 0 #276749;
+  background: linear-gradient(180deg, var(--play-top, #48bb78), var(--play-bottom, #2f855a));
+  box-shadow: 0 6px 0 var(--play-shadow, #276749);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .btn--play:active {
   transform: translateY(4px);
-  box-shadow: 0 2px 0 #276749;
+  box-shadow: 0 2px 0 var(--play-shadow, #276749);
 }
 
 .confetti {

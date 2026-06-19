@@ -1,7 +1,7 @@
 {
-  "name": "Bird Match!",
-  "short_name": "Bird Match",
-  "description": "A bird memory matching game for kids",
+  "name": "Match Game!",
+  "short_name": "Match Game",
+  "description": "Memory matching games for kids — birds, insects, and planets",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#87ceeb",

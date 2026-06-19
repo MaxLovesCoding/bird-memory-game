@@ -12,6 +12,11 @@ A simple bird memory matching game for kids — flip cards to find matching bird
 
 Each game picks a random set of birds from a flock of 10.
 
+**Live game:** https://bird-memory-game.vercel.app  
+**GitHub repo:** https://github.com/MaxLovesCoding/bird-memory-game
+
+Pushes to `main` auto-deploy to Vercel.
+
 ## Run locally
 
 ```bash

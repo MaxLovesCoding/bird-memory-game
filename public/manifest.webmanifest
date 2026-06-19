@@ -1,0 +1,16 @@
+{
+  "name": "Bird Match!",
+  "short_name": "Bird Match",
+  "description": "A bird memory matching game for kids",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#87ceeb",
+  "theme_color": "#87ceeb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

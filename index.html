@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Bird Match" />
+    <meta name="theme-color" content="#87ceeb" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Bird Match!</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1 class="header__title">🐦 Bird Match!</h1>
+        <p class="header__counter" id="pair-counter" aria-live="polite">Found: 0 / 4</p>
+      </header>
+
+      <main class="board" id="board" aria-label="Bird memory game board"></main>
+
+      <div class="overlay" id="start-overlay">
+        <div class="overlay__panel">
+          <p class="overlay__emoji" aria-hidden="true">🦜 🐧 🦉</p>
+          <h2 class="overlay__title">Bird Match!</h2>
+          <p class="overlay__subtitle">Find the matching bird pairs</p>
+          <div class="mode-picker" role="group" aria-label="Choose game size">
+            <button class="mode-btn mode-btn--active" type="button" data-pairs="4" aria-pressed="true">
+              4 pairs
+              <span class="mode-btn__hint">Easier</span>
+            </button>
+            <button class="mode-btn" type="button" data-pairs="6" aria-pressed="false">
+              6 pairs
+              <span class="mode-btn__hint">More birds!</span>
+            </button>
+          </div>
+          <button class="btn btn--play" id="play-btn" type="button">Play!</button>
+        </div>
+      </div>
+
+      <div class="overlay overlay--hidden" id="win-overlay" aria-hidden="true">
+        <div class="overlay__panel overlay__panel--win">
+          <p class="overlay__emoji overlay__emoji--dance" aria-hidden="true">🎉 🦅 🐦 🦆 🎉</p>
+          <h2 class="overlay__title">You did it!</h2>
+          <p class="overlay__subtitle">All the birds found their friends!</p>
+          <div class="confetti" id="confetti" aria-hidden="true"></div>
+          <button class="btn btn--play" id="play-again-btn" type="button">Play again!</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 import { createGameShell, goHome } from "../../shared/game-shell.js";
 import { createWinOverlay } from "../../shared/win.js";
-import { playChime } from "../../shared/sound.js";
+import { playChime, speakWord } from "../../shared/sound.js";
 import { buildChoices, pickSets, TOTAL_ROUNDS } from "./rhymes.js";
 
 export const gameMeta = {
@@ -52,6 +52,7 @@ export function mount(container) {
     progress.textContent = `Round ${round} / ${TOTAL_ROUNDS}`;
     wordEl.textContent = current.target.word;
     emojiEl.textContent = current.target.emoji;
+    speakWord(current.target.word.toLowerCase());
 
     choicesEl.innerHTML = "";
     buildChoices(current).forEach((choice) => {
@@ -90,6 +91,7 @@ export function mount(container) {
 
   cleanup = () => {
     document.body.dataset.theme = "hub";
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   };
 }
 

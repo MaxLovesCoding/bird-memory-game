@@ -62,6 +62,17 @@ body[data-theme="rhyme"] {
   --play-shadow: #97266d;
 }
 
+body[data-theme="spell"] {
+  --page-bg: linear-gradient(180deg, #b2f5ea 0%, #81e6d9 50%, #e9d8fd 100%);
+  --text-color: #234e52;
+  --card-text-color: #1a365d;
+  --accent: #319795;
+  --accent-soft: #e6fffa;
+  --play-top: #38b2ac;
+  --play-bottom: #2c7a7b;
+  --play-shadow: #285e61;
+}
+
 body[data-theme="birds"] {
   --page-bg: linear-gradient(180deg, #87ceeb 0%, #b8e0f6 45%, #e8f5e9 100%);
   --text-color: #1a365d;
@@ -428,7 +439,28 @@ body[data-theme="planets"] {
 }
 
 .hub__header {
+  position: relative;
   margin-bottom: 1.5rem;
+}
+
+.sound-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a365d;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sound-toggle:active {
+  transform: scale(0.97);
 }
 
 .hub__title {
@@ -446,6 +478,19 @@ body[data-theme="planets"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+}
+
+.hub__grid--five .hub-tile--wide {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .hub__grid--five .hub-tile--wide {
+    max-width: 100%;
+  }
 }
 
 .hub-tile {

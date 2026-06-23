@@ -1,4 +1,4 @@
-import { mountHub } from "./hub.js";
+import { mountHub, unmountHub } from "./hub.js";
 import { games, gamesById } from "./games/registry.js";
 
 let activeGame = null;
@@ -12,6 +12,8 @@ function unmountActive() {
   if (activeGame) {
     activeGame.unmount();
     activeGame = null;
+  } else {
+    unmountHub(appEl);
   }
   appEl.innerHTML = "";
 }

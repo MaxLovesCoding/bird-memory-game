@@ -1,11 +1,11 @@
 {
-  "name": "Match Game!",
-  "short_name": "Match Game",
-  "description": "Memory matching games for kids — birds, insects, and planets",
+  "name": "Toy Box",
+  "short_name": "Toy Box",
+  "description": "Kindergarten learning games — memory, counting, letters, and rhymes",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#87ceeb",
-  "theme_color": "#87ceeb",
+  "background_color": "#ffd166",
+  "theme_color": "#ffd166",
   "icons": [
     {
       "src": "/favicon.svg",

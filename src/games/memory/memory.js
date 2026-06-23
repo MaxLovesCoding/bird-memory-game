@@ -11,6 +11,7 @@ import {
 
 export const gameMeta = {
   id: "memory",
+  grade: "k",
   title: "Memory Match",
   emoji: "🃏",
   description: "Find the pairs",
@@ -31,7 +32,7 @@ export function mount(container) {
 
   const shell = createGameShell({
     title: "Memory Match",
-    onBack: goHome,
+    onBack: () => goHome("k"),
   });
 
   let pairCount = DEFAULT_PAIR_COUNT;

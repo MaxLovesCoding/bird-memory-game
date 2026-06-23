@@ -5,6 +5,7 @@ import { buildChoices, pickSets, TOTAL_ROUNDS } from "./rhymes.js";
 
 export const gameMeta = {
   id: "rhyme",
+  grade: "k",
   title: "Rhyme Time",
   emoji: "🎵",
   description: "Which rhymes?",
@@ -16,7 +17,7 @@ let cleanup = null;
 export function mount(container) {
   document.body.dataset.theme = "rhyme";
 
-  const shell = createGameShell({ title: "Rhyme Time", onBack: goHome });
+  const shell = createGameShell({ title: "Rhyme Time", onBack: () => goHome("k") });
   let round = 0;
   let sets = pickSets();
   let current = null;

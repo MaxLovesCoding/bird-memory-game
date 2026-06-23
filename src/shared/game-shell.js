@@ -3,7 +3,7 @@ export function createGameShell({ title, onBack }) {
   root.className = "game-view";
   root.innerHTML = `
     <header class="game-header">
-      <button type="button" class="btn-back" aria-label="Back to Toy Box">← Back</button>
+      <button type="button" class="btn-back" aria-label="Back to games">← Back</button>
       <h1 class="game-header__title"></h1>
     </header>
     <div class="game-content"></div>
@@ -18,6 +18,10 @@ export function createGameShell({ title, onBack }) {
   };
 }
 
-export function goHome() {
+export function goHome(grade) {
+  location.hash = `#/${grade}`;
+}
+
+export function goToGradePicker() {
   location.hash = "#/";
 }

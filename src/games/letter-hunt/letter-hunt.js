@@ -5,6 +5,7 @@ import { buildRound, TOTAL_ROUNDS } from "./letters.js";
 
 export const gameMeta = {
   id: "letters",
+  grade: "k",
   title: "Letter Hunt",
   emoji: "🔤",
   description: "Find the letter",
@@ -16,7 +17,7 @@ let cleanup = null;
 export function mount(container) {
   document.body.dataset.theme = "letters";
 
-  const shell = createGameShell({ title: "Letter Hunt", onBack: goHome });
+  const shell = createGameShell({ title: "Letter Hunt", onBack: () => goHome("k") });
   let round = 0;
   let current = null;
 

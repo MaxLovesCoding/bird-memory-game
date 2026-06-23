@@ -1,4 +1,5 @@
 import { isSoundEnabled, SOUND_CHANGE_EVENT, toggleSound } from "./shared/sound.js";
+import { goToGradePicker } from "./shared/game-shell.js";
 
 function updateSoundButton(button) {
   const on = isSoundEnabled();
@@ -7,15 +8,18 @@ function updateSoundButton(button) {
   button.setAttribute("aria-label", on ? "Sound on. Tap to turn off." : "Sound off. Tap to turn on.");
 }
 
-export function mountHub(container, games) {
+export function mountHub(container, { grade, title, subtitle, games, theme = "hub" }) {
+  document.body.dataset.theme = theme;
+
   container.innerHTML = `
     <div class="hub">
       <header class="hub__header">
+        <button type="button" class="btn-switch-grade">Switch grade</button>
         <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true">🔊 Sound on</button>
-        <h1 class="hub__title">🧸 Toy Box</h1>
-        <p class="hub__subtitle">Pick a game to play!</p>
+        <h1 class="hub__title">${title}</h1>
+        <p class="hub__subtitle">${subtitle}</p>
       </header>
-      <div class="hub__grid hub__grid--five" role="list"></div>
+      <div class="hub__grid" role="list"></div>
     </div>
   `;
 
@@ -28,14 +32,21 @@ export function mountHub(container, games) {
     updateSoundButton(soundBtn);
   });
 
+  container.querySelector(".btn-switch-grade").addEventListener("click", goToGradePicker);
+
   const onSoundChange = () => updateSoundButton(soundBtn);
   window.addEventListener(SOUND_CHANGE_EVENT, onSoundChange);
+
+  const count = games.length;
+  if (count % 2 === 1) {
+    grid.classList.add("hub__grid--odd");
+  }
 
   games.forEach(({ gameMeta }, index) => {
     const tile = document.createElement("button");
     tile.type = "button";
     tile.className = "hub-tile";
-    if (index === games.length - 1 && games.length === 5) {
+    if (count % 2 === 1 && index === count - 1) {
       tile.classList.add("hub-tile--wide");
     }
     tile.style.setProperty("--tile-color", gameMeta.color);
@@ -46,7 +57,7 @@ export function mountHub(container, games) {
       <span class="hub-tile__desc">${gameMeta.description}</span>
     `;
     tile.addEventListener("click", () => {
-      location.hash = `#/${gameMeta.id}`;
+      location.hash = `#/${grade}/${gameMeta.id}`;
     });
     grid.appendChild(tile);
   });

@@ -5,6 +5,7 @@ import { buildRound, TOTAL_ROUNDS } from "./questions.js";
 
 export const gameMeta = {
   id: "count",
+  grade: "k",
   title: "Count & Tap",
   emoji: "🔢",
   description: "How many?",
@@ -16,7 +17,7 @@ let cleanup = null;
 export function mount(container) {
   document.body.dataset.theme = "count";
 
-  const shell = createGameShell({ title: "Count & Tap", onBack: goHome });
+  const shell = createGameShell({ title: "Count & Tap", onBack: () => goHome("k") });
   let round = 0;
   let current = null;
 

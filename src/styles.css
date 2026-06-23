@@ -29,6 +29,49 @@ body[data-theme="hub"] {
   --play-shadow: #276749;
 }
 
+body[data-theme="picker"] {
+  --page-bg: linear-gradient(180deg, #ffd166 0%, #c3dafe 50%, #e9d8fd 100%);
+  --text-color: #1a365d;
+}
+
+body[data-theme="g5-hub"] {
+  --page-bg: linear-gradient(180deg, #667eea 0%, #764ba2 45%, #edf2f7 100%);
+  --text-color: #1a202c;
+  --card-text-color: #1a365d;
+  --accent: #667eea;
+  --accent-soft: #ebf4ff;
+  --play-top: #667eea;
+  --play-bottom: #5a67d8;
+  --play-shadow: #434190;
+}
+
+body[data-theme="g5-math"] {
+  --page-bg: linear-gradient(180deg, #bee3f8 0%, #90cdf4 50%, #e9d8fd 100%);
+  --text-color: #2c5282;
+  --accent: #4299e1;
+  --play-top: #4299e1;
+  --play-bottom: #3182ce;
+  --play-shadow: #2b6cb0;
+}
+
+body[data-theme="g5-read"] {
+  --page-bg: linear-gradient(180deg, #e9d8fd 0%, #d6bcfa 50%, #edf2f7 100%);
+  --text-color: #44337a;
+  --accent: #805ad5;
+  --play-top: #805ad5;
+  --play-bottom: #6b46c1;
+  --play-shadow: #553c9a;
+}
+
+body[data-theme="g5-spell"] {
+  --page-bg: linear-gradient(180deg, #b2f5ea 0%, #81e6d9 50%, #e9d8fd 100%);
+  --text-color: #234e52;
+  --accent: #38b2ac;
+  --play-top: #38b2ac;
+  --play-bottom: #2c7a7b;
+  --play-shadow: #285e61;
+}
+
 body[data-theme="count"] {
   --page-bg: linear-gradient(180deg, #feebc8 0%, #fbd38d 50%, #faf089 100%);
   --text-color: #744210;
@@ -480,7 +523,7 @@ body[data-theme="planets"] {
   gap: 1rem;
 }
 
-.hub__grid--five .hub-tile--wide {
+.hub__grid--odd .hub-tile--wide {
   grid-column: 1 / -1;
   max-width: 50%;
   margin: 0 auto;
@@ -488,9 +531,29 @@ body[data-theme="planets"] {
 }
 
 @media (max-width: 480px) {
-  .hub__grid--five .hub-tile--wide {
+  .hub__grid--odd .hub-tile--wide {
     max-width: 100%;
   }
+}
+
+.btn-switch-grade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-color, #1a365d);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-switch-grade:active {
+  transform: scale(0.97);
 }
 
 .hub-tile {
@@ -697,4 +760,136 @@ body[data-theme="planets"] {
 
 .game-view .overlay {
   position: fixed;
+}
+
+/* --- Grade picker --- */
+.grade-picker {
+  width: min(100%, 520px);
+  text-align: center;
+}
+
+.grade-picker__header {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.grade-picker__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+}
+
+.grade-picker__subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.grade-picker__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grade-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.5rem 1rem;
+  border: none;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12);
+  min-height: 150px;
+}
+
+.grade-tile--k {
+  box-shadow: 0 8px 0 #d69e2e;
+}
+
+.grade-tile--g5 {
+  box-shadow: 0 8px 0 #5a67d8;
+}
+
+.grade-tile:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.grade-tile__emoji {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+.grade-tile__title {
+  font: inherit;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1a365d;
+}
+
+.grade-tile__desc {
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+/* --- 5th grade quiz --- */
+.quiz-prompt--g5 {
+  padding: 1rem 1.25rem;
+}
+
+.quiz-prompt__title--g5 {
+  font-size: clamp(1.15rem, 4vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.quiz-prompt__hint {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.45;
+}
+
+.passage-card {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 1rem;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.passage-card__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.passage-card__text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #2d3748;
+}
+
+.question-tag {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent, #805ad5);
+}
+
+.choice-btn--text {
+  padding: 0.85rem 0.5rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  font-weight: 700;
+  color: #1a365d;
+  line-height: 1.25;
+}
+
+.choice-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
 }

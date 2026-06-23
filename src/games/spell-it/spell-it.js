@@ -5,6 +5,7 @@ import { pickRounds, TOTAL_ROUNDS } from "./words.js";
 
 export const gameMeta = {
   id: "spell",
+  grade: "k",
   title: "Spell It",
   emoji: "✏️",
   description: "Fill the letter",
@@ -16,7 +17,7 @@ let cleanup = null;
 export function mount(container) {
   document.body.dataset.theme = "spell";
 
-  const shell = createGameShell({ title: "Spell It", onBack: goHome });
+  const shell = createGameShell({ title: "Spell It", onBack: () => goHome("k") });
   let round = 0;
   let rounds = pickRounds();
   let current = null;

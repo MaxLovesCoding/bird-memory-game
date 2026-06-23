@@ -1,7 +1,7 @@
 {
-  "name": "Toy Box",
+  "name": "Learning Toy Box",
   "short_name": "Toy Box",
-  "description": "Kindergarten learning games — memory, counting, letters, and rhymes",
+  "description": "Kindergarten and 5th grade learning games — memory, math, reading, spelling, and more",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffd166",
